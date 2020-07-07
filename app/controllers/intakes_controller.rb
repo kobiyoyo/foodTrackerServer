@@ -1,5 +1,6 @@
 class IntakesController < ApplicationController
   before_action :set_intake, only: [:show, :update, :destroy]
+  before_action :authorize_admin,only: [:create,:destroy,:index,:show,:update]
 
   # GET /intakes
   def index
@@ -49,5 +50,11 @@ class IntakesController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def intake_params
       params.permit(:title)
+    end
+    # authorize admin
+    def authorize_admin
+      return unless !current_user.admin?
+      response = { message: 'Only Admin can have access!'}
+      render json: response
     end
 end
