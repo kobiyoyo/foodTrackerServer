@@ -1,3 +1,21 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+	  namespace :api do
+	    namespace :v1 do
+	    
+	    	resources :users
+
+    		# resources :tickets do
+
+    		# 	resources :comments
+    		# 	post :claim, to:'claims#create'
+    		# 	delete :unclaim, to:'claims#destroy'
+    		# end
+	   
+	    end
+	  end
+
+  scope '/auth' do
+   post '/signin', to: 'user_token#create'
+   post '/signup', to: 'api/v1/users#create'
+  end
 end
