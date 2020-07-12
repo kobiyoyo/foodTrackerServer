@@ -1,4 +1,4 @@
-class MeasurementsController < ApplicationController
+class Api::V1::MeasurementsController < ApplicationController
   before_action :set_measurement, only: [:show, :update, :destroy]
   before_action :find_intake, only: [:create]
   # GET /measurements
@@ -16,7 +16,7 @@ class MeasurementsController < ApplicationController
   # POST /measurements
   def create
     @measurement = @intake.measurements.build(measurement_params)
-    @measurement.user << current_user
+    @measurement.user_id = current_user.id
     if @measurement.save
       render json: @measurement, status: :created
     else
@@ -27,7 +27,7 @@ class MeasurementsController < ApplicationController
   # PATCH/PUT /measurements/1
   def update
     if @measurement.update(measurement_params)
-      render json: @measurement, status: :updated
+      render json: @measurement
     else
       render json: @measurement.errors, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class MeasurementsController < ApplicationController
   # DELETE /measurements/1
   def destroy
     @measurement.destroy
-    response = { message:'User successfully deleted'}
+    response = { message:'Measurement deleted successfully'}
     render json: response
   end
 

@@ -1,4 +1,4 @@
-class IntakesController < ApplicationController
+class Api::V1::IntakesController < ApplicationController
   before_action :set_intake, only: [:show, :update, :destroy]
   before_action :authorize_admin,only: [:create,:destroy,:index,:show,:update]
 
@@ -28,7 +28,7 @@ class IntakesController < ApplicationController
   # PATCH/PUT /intakes/1
   def update
     if @intake.update(intake_params)
-      render json: @intake, status: :updated
+      render json: @intake
     else
       render json: @intake.errors, status: :unprocessable_entity
     end
@@ -37,7 +37,7 @@ class IntakesController < ApplicationController
   # DELETE /intakes/1
   def destroy
     @intake.destroy
-    response = { message:'Intake category successfully deleted'}
+    response = { message:'Intake category deleted successfully'}
     render json: response
   end
 

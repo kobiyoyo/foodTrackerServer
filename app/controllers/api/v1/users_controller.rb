@@ -1,6 +1,7 @@
 class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
   before_action :authenticate_user,except: [:create]
+  before_action :authorize_admin,only: [:destroy,:index]
   
   # GET /users
   def index
@@ -37,6 +38,8 @@ class Api::V1::UsersController < ApplicationController
   # DELETE /users/1
   def destroy
     @user.destroy
+    response = { message:'User  deleted successfully'}
+    render json: response
   end
 
   private
@@ -48,5 +51,10 @@ class Api::V1::UsersController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def user_params
       params.permit(:username, :email, :password, :password_confirmation)
+    end
+    def authorize_admin
+      return unless !current_user.admin?
+      response = { message: 'Only Admin can have access!'}
+      render json: response
     end
 end

@@ -1,17 +1,13 @@
 Rails.application.routes.draw do
-  resources :measurements
-  resources :intakes
+
 	  namespace :api do
 	    namespace :v1 do
 	    
 	    	resources :users
 
-    		# resources :tickets do
-
-    		# 	resources :comments
-    		# 	post :claim, to:'claims#create'
-    		# 	delete :unclaim, to:'claims#destroy'
-    		# end
+    		resources :intakes do
+    			resources :measurements
+    		end
 	   
 	    end
 	  end
