@@ -9,7 +9,7 @@ class Api::V1::UsersController < ApplicationController
 
     render json: @users
   end
-
+ 
   # GET /users/1
   def show
     render json: @user
