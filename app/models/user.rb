@@ -13,7 +13,12 @@ class User < ApplicationRecord
 
 
 
-
+def to_token_payload
+  {
+    sub: id,
+    username: username
+  }
+end
    def set_default_role
    	self.role ||= :client
    end
