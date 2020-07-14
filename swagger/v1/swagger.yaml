@@ -1,0 +1,641 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/intakes":
+    post:
+      summary: Creates a intake
+      tags:
+      - Intakes
+      parameters: []
+      responses:
+        '201':
+          description: intake created
+          content: {}
+        '422':
+          description: invalid request
+          content: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+              required:
+              - title
+  "/intakes/{id}":
+    get:
+      summary: Retrieves a intake
+      tags:
+      - Intakes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: intake found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                required:
+                - id
+                - title
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                required:
+                - id
+                - title
+        '404':
+          description: intake not found
+          content: {}
+        '406':
+          description: unsupported accept header
+          content: {}
+    delete:
+      summary: Deletes a intake
+      tags:
+      - Intakes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: intake found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                required:
+                - id
+                - title
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                required:
+                - id
+                - title
+        '404':
+          description: intake not found
+          content: {}
+        '406':
+          description: unsupported accept header
+          content: {}
+    put:
+      summary: Edits all intake parameters
+      tags:
+      - Intakes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: intake found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                required:
+                - id
+                - title
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                required:
+                - id
+                - title
+        '404':
+          description: intake not found
+          content: {}
+        '406':
+          description: unsupported accept header
+          content: {}
+    patch:
+      summary: Edits an intake parameter
+      tags:
+      - Intakes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: intake found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                required:
+                - id
+                - title
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                required:
+                - id
+                - title
+        '404':
+          description: intake not found
+          content: {}
+        '406':
+          description: unsupported accept header
+          content: {}
+  "/intakes/measurements":
+    post:
+      summary: Creates a measurements
+      tags:
+      - Measurements
+      parameters: []
+      responses:
+        '201':
+          description: measurement created
+          content: {}
+        '422':
+          description: measurement request
+          content: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                units:
+                  type: integer
+              required:
+              - units
+  "/intakes/{id}/measurement/{id}":
+    get:
+      summary: Retrieves a measurement
+      tags:
+      - Measurements
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: measurement found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  units:
+                    type: integer
+                required:
+                - id
+                - units
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  units:
+                    type: integer
+                required:
+                - id
+                - units
+        '404':
+          description: measurement not found
+          content: {}
+        '406':
+          description: unsupported accept header
+          content: {}
+    delete:
+      summary: Deletes a measurement
+      tags:
+      - Measurements
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: measurement found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  units:
+                    type: integer
+                required:
+                - id
+                - units
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  units:
+                    type: integer
+                required:
+                - id
+                - units
+        '404':
+          description: measurement not found
+          content: {}
+        '406':
+          description: unsupported accept header
+          content: {}
+    put:
+      summary: Edits all measurement parameters
+      tags:
+      - Measurements
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: measurement found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  units:
+                    type: integer
+                required:
+                - id
+                - units
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  units:
+                    type: integer
+                required:
+                - id
+                - units
+        '404':
+          description: measurement not found
+          content: {}
+        '406':
+          description: unsupported accept header
+          content: {}
+    patch:
+      summary: Edits a measurement parameter
+      tags:
+      - Measurements
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: measurement found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  units:
+                    type: integer
+                required:
+                - id
+                - units
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  units:
+                    type: integer
+                required:
+                - id
+                - units
+        '404':
+          description: measurement not found
+          content: {}
+        '406':
+          description: unsupported accept header
+          content: {}
+  "/users":
+    post:
+      summary: Creates a user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: user created
+          content: {}
+        '422':
+          description: invalid request
+          content: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                email:
+                  type: string
+                role:
+                  type: integer
+              required:
+              - title
+  "/users/{id}":
+    get:
+      summary: Retrieves a user
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: user found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  username:
+                    type: string
+                  password:
+                    type: string
+                  email:
+                    type: string
+                  role:
+                    type: integer
+                required:
+                - id
+                - title
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  username:
+                    type: string
+                  password:
+                    type: string
+                  email:
+                    type: string
+                  role:
+                    type: integer
+                required:
+                - id
+                - title
+        '404':
+          description: user not found
+          content: {}
+        '406':
+          description: unsupported accept header
+          content: {}
+    delete:
+      summary: Deletes a user
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: user found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  username:
+                    type: string
+                  password:
+                    type: string
+                  email:
+                    type: string
+                  role:
+                    type: integer
+                required:
+                - id
+                - title
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  username:
+                    type: string
+                  password:
+                    type: string
+                  email:
+                    type: string
+                  role:
+                    type: integer
+                required:
+                - id
+                - title
+        '404':
+          description: user not found
+          content: {}
+        '406':
+          description: unsupported accept header
+          content: {}
+    put:
+      summary: Edits all user parameters
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: user found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  username:
+                    type: string
+                  password:
+                    type: string
+                  email:
+                    type: string
+                  role:
+                    type: integer
+                required:
+                - id
+                - title
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  username:
+                    type: string
+                  password:
+                    type: string
+                  email:
+                    type: string
+                  role:
+                    type: integer
+                required:
+                - id
+                - title
+        '404':
+          description: user not found
+          content: {}
+        '406':
+          description: unsupported accept header
+          content: {}
+    patch:
+      summary: Edit a user parameter
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: user found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  username:
+                    type: string
+                  password:
+                    type: string
+                  email:
+                    type: string
+                  role:
+                    type: integer
+                required:
+                - id
+                - title
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  username:
+                    type: string
+                  password:
+                    type: string
+                  email:
+                    type: string
+                  role:
+                    type: integer
+                required:
+                - id
+                - title
+        '404':
+          description: user not found
+          content: {}
+        '406':
+          description: unsupported accept header
+          content: {}
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com

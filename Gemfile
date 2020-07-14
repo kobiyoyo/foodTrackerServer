@@ -18,7 +18,7 @@ gem 'puma', '~> 4.1'
 gem 'hirb', '~> 0.7.3'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+# gem 'rspec_api_documentation'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rubocop', '~>0.81.0' 
@@ -27,6 +27,7 @@ gem 'rack-cors'
 gem 'bcrypt'
 gem 'knock'
 gem 'active_model_serializers'
+gem 'rswag'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -35,6 +36,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
+  gem "rswag-specs"
 end
 group :test do 
   gem 'shoulda-matchers'
