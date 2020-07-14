@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-  <h1 align="center">Tracker Api</h1>
+  <h1 align="center">Food Tracker API</h1>
 
   <p align="center">
     A Ruby on Rails application
@@ -16,7 +16,7 @@
 
 
 
-  <p>
+  <p align="center">
   	<a href="https://codeclimate.com/github/kobiyoyo/foodTrackerServer/maintainability"><img src="https://api.codeclimate.com/v1/badges/f575ff8963bf183eb988/maintainability" /></a>
   	<a href="https://codeclimate.com/github/kobiyoyo/foodTrackerServer/test_coverage"><img src="https://api.codeclimate.com/v1/badges/f575ff8963bf183eb988/test_coverage" /></a>
   </p>
@@ -44,10 +44,6 @@ This is a food intake tracker API, which can be used to track the amount of food
 - Admin users can add intake.
 - Admin users can edit intake.
 - Admin users can delete intake.
-
-
-
-
 
 
 ## Requests
@@ -121,6 +117,209 @@ $ rspec
 ```sh
 $ cd rails c
 ```
+
+
+- For a user to sign up: `http://localhost:3000/auth/signup`
+`POST`
+  
+```
+
+{
+  "username": "daniel",
+  "email": "adamadan@gmail.com",
+  "password": "123dan",
+  "role": "client"
+}
+
+```
+
+- For a user to sign in: `http://localhost:3000/auth/signin`
+`POST`  
+
+```
+
+{
+    "email": "adamadan@gmail.com",
+    "password": "123dan"
+}
+
+```
+
+- For a user to edit his/her account: `http://localhost:3000/api/v1/user/:id`
+`PATCH`
+  
+```
+
+Sign into the user account and proceed to edit
+Headers - Authorization `token`
+
+```
+
+- For a user to delete his/her account: `http://localhost:3000/api/v1/user/:id`
+`DELETE`
+ 
+```
+
+Sign into the user account and proceed to delete
+Headers - Authorization `token`
+
+```
+
+- For a user to create an intake: `http://localhost:3000/api/v1/intakes`
+`POST`
+
+```
+
+Sign into the user account
+Headers - Authorization `token`
+
+{
+    "title":"Oil"
+
+}
+
+```
+
+- For a user to update an intake: `http://localhost:3000/api/v1/intakes/:id`
+`PATCH` 
+
+```
+
+Sign into the user account
+Headers - Authorization `token`
+
+{
+    "title": "Black is gold"
+}
+
+```
+
+- For a user to get an intake: `http://localhost:3000/api/v1/intakes/:id`
+`GET` 
+
+```
+
+Sign into the user account
+Headers - Authorization `token`
+
+```
+
+- For a user to get all intakes: `http://localhost:3000/api/v1/intakes`
+`GET` 
+
+```
+
+Sign into the user account
+Headers - Authorization `token`
+
+```
+
+- For a user to delete an intake: `http://localhost:3000/api/v1/intakes/:id`
+`DELETE` 
+
+```
+Sign into the user account
+Headers - Authorization `token`
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+- For a user to create measurement: `http://localhost:3000/api/v1/intakes/:id/measurements`
+`POST`
+
+```
+
+Sign into the user account
+Headers - Authorization `token`
+
+{
+    "units":32
+
+}
+
+```
+
+- For a user to update measurement: `http://localhost:3000/api/v1/intakes/:id/measurements/:id`
+`PATCH` 
+
+```
+
+Sign into the user account
+Headers - Authorization `token`
+
+{
+    "units": 324
+}
+
+```
+
+- For a user to get measurement: `http://localhost:3000/api/v1/intakes/:id/measurements/:id`
+`GET` 
+
+```
+
+Sign into the user account
+Headers - Authorization `token`
+
+```
+
+- For a user to get all measurements: `http://localhost:3000/api/v1/intakes/:id/measurements/`
+`GET` 
+
+```
+
+Sign into the user account
+Headers - Authorization `token`
+
+```
+
+- For a user to delete an measurement: `http://localhost:3000/api/v1/intakes/:id/measurements/:id`
+`DELETE` 
+
+```
+Sign into the user account
+Headers - Authorization `token`
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Contributors
 
 * [Adama Chubiyojo Desmond](https://github.com/kobiyoyo)
