@@ -112,48 +112,6 @@ paths:
         '406':
           description: unsupported accept header
           content: {}
-    put:
-      summary: Edits all intake parameters
-      tags:
-      - Intakes
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: intake found
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                  title:
-                    type: string
-                required:
-                - id
-                - title
-            application/xml:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                  title:
-                    type: string
-                required:
-                - id
-                - title
-        '404':
-          description: intake not found
-          content: {}
-        '406':
-          description: unsupported accept header
-          content: {}
     patch:
       summary: Edits an intake parameter
       tags:
@@ -304,48 +262,6 @@ paths:
         '406':
           description: unsupported accept header
           content: {}
-    put:
-      summary: Edits all measurement parameters
-      tags:
-      - Measurements
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-      responses:
-        '200':
-          description: measurement found
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                  units:
-                    type: integer
-                required:
-                - id
-                - units
-            application/xml:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                  units:
-                    type: integer
-                required:
-                - id
-                - units
-        '404':
-          description: measurement not found
-          content: {}
-        '406':
-          description: unsupported accept header
-          content: {}
     patch:
       summary: Edits a measurement parameter
       tags:
@@ -416,7 +332,9 @@ paths:
                 role:
                   type: integer
               required:
-              - title
+              - email
+              - password
+              - username
   "/users/{id}":
     get:
       summary: Retrieves a user
@@ -448,7 +366,7 @@ paths:
                     type: integer
                 required:
                 - id
-                - title
+                - username
             application/xml:
               schema:
                 type: object
@@ -465,7 +383,7 @@ paths:
                     type: integer
                 required:
                 - id
-                - title
+                - username
         '404':
           description: user not found
           content: {}
@@ -502,7 +420,7 @@ paths:
                     type: integer
                 required:
                 - id
-                - title
+                - username
             application/xml:
               schema:
                 type: object
@@ -519,61 +437,7 @@ paths:
                     type: integer
                 required:
                 - id
-                - title
-        '404':
-          description: user not found
-          content: {}
-        '406':
-          description: unsupported accept header
-          content: {}
-    put:
-      summary: Edits all user parameters
-      tags:
-      - Users
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: user found
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                  username:
-                    type: string
-                  password:
-                    type: string
-                  email:
-                    type: string
-                  role:
-                    type: integer
-                required:
-                - id
-                - title
-            application/xml:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                  username:
-                    type: string
-                  password:
-                    type: string
-                  email:
-                    type: string
-                  role:
-                    type: integer
-                required:
-                - id
-                - title
+                - username
         '404':
           description: user not found
           content: {}
@@ -610,7 +474,7 @@ paths:
                     type: integer
                 required:
                 - id
-                - title
+                - username
             application/xml:
               schema:
                 type: object
@@ -627,7 +491,7 @@ paths:
                     type: integer
                 required:
                 - id
-                - title
+                - username
         '404':
           description: user not found
           content: {}

@@ -79,7 +79,10 @@ The routes featured in this project:
 <hr>
 
 ## Live Demo
+
 [Live Demo Link](https://powerful-escarpment-41375.herokuapp.com/login)
+
+
 ## Usage
 
 > Clone the repository to your local machine
@@ -118,7 +121,7 @@ $ rspec
 $ cd rails c
 ```
 
-
+## Sample test
 - For a user to sign up: `http://localhost:3000/auth/signup`
 `POST`
   
@@ -222,18 +225,6 @@ Sign into the user account
 Headers - Authorization `token`
 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
 
 - For a user to create measurement: `http://localhost:3000/api/v1/intakes/:id/measurements`
 `POST`
