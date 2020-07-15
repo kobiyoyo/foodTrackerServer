@@ -18,11 +18,19 @@ RSpec.describe '/api/v1/users_controller', type: :request do
       }
 
       response '201', 'user created' do
-        let(:user) { { username: 'chubi adama', email: 'adamachubi@gmail.com', password_digest: 'chubi', role: 'client' } }
+        let(:user) do
+          { username: 'chubi adama',
+            email: 'adamachubi@gmail.com',
+            password_digest: 'chubi', role: 'client' }
+        end
       end
 
       response '422', 'invalid request' do
-        let(:user) { { username: 'chubi adama', email: '', password_digest: '', role: 'client' } }
+        let(:user) do
+          { username: 'chubi adama',
+            email: '',
+            password_digest: '', role: 'client' }
+        end
       end
     end
   end
@@ -44,7 +52,11 @@ RSpec.describe '/api/v1/users_controller', type: :request do
                },
                required: %w[id username]
 
-        let(:id) { User.create(username: 'chubi adama', email: 'adamachubi@gmail.com', password_digest: 'chubi', role: 'client').id }
+        let(:id) do
+          User.create(username: 'chubi adama',
+                      email: 'adamachubi@gmail.com',
+                      password_digest: 'chubi', role: 'client').id
+        end
       end
 
       response '404', 'user not found' do
@@ -71,7 +83,11 @@ RSpec.describe '/api/v1/users_controller', type: :request do
                },
                required: %w[id username]
 
-        let(:id) { User.create(username: 'chubi adama', email: 'adamachubi@gmail.com', password_digest: 'chubi', role: 'client').id }
+        let(:id) do
+          User.create(username: 'chubi adama',
+                      email: 'adamachubi@gmail.com',
+                      password_digest: 'chubi', role: 'client').id
+        end
       end
 
       response '404', 'user not found' do
@@ -99,7 +115,11 @@ RSpec.describe '/api/v1/users_controller', type: :request do
                },
                required: %w[id username]
 
-        let(:id) { User.create(username: 'chubi adama', email: 'adamachubi@gmail.com', password_digest: 'chubi', role: 'client').id }
+        let(:id) do
+          User.create(username: 'chubi adama',
+                      email: 'adamachubi@gmail.com',
+                      password_digest: 'chubi', role: 'client').id
+        end
       end
 
       response '404', 'user not found' do
