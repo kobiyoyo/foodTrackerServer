@@ -78,10 +78,6 @@ The routes featured in this project:
 
 <hr>
 
-## Live Demo
-
-[Live Demo Link](https://powerful-escarpment-41375.herokuapp.com/login)
-
 
 ## Usage
 
@@ -120,6 +116,10 @@ $ rspec
 ```sh
 $ cd rails c
 ```
+## API Documentation
+
+`http://localhost:3000/api-docs/`
+
 
 ## Sample test
 - For a user to sign up: `http://localhost:3000/auth/signup`
