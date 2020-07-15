@@ -6,7 +6,7 @@
     A Ruby on Rails application
     <br />
     <br />
-    <a href="https://powerful-escarpment-41375.herokuapp.com/login">View Demo</a>
+    <a href="">View Demo</a>
     ·
     <a href="https://github.com/kobiyoyo/foodTrackerServer/issues">Report Bug</a>
     ·
@@ -26,12 +26,11 @@
 
 
 ## Description
-This is a food intake tracker API, which can be used to track the amount of food taken at a specified moment time. This food is managed by the administrator user.
+This is a food intake tracker API, which can be used to track the amount of food taken at a specified moment time. This food intake is managed by the administrator user.
 
 ## Built With
 - Ruby 
 - Ruby on Rails
-- Bulma
 - Bullet
 - Rubocop
 - PostgreSQL
@@ -140,10 +139,11 @@ $ cd rails c
 `POST`  
 
 ```
-
 {
-    "email": "adamadan@gmail.com",
+ “auth”: {
+  "email": "adamadan@gmail.com",
     "password": "123dan"
+ }
 }
 
 ```

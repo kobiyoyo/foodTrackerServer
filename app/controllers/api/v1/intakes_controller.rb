@@ -1,6 +1,6 @@
 class Api::V1::IntakesController < ApplicationController
   before_action :set_intake, only: %i[show update destroy]
-  before_action :authorize_admin, only: %i[create destroy index show update]
+  before_action :authorize_admin, only: %i[create destroy update]
 
   # GET /intakes
   def index
