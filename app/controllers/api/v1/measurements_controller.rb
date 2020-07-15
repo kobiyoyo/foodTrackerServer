@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Api::V1::MeasurementsController < ApplicationController
   before_action :set_measurement, only: %i[show update destroy]
   before_action :find_intake, only: [:create]
