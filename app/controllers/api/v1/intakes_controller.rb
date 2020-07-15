@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Api::V1::IntakesController < ApplicationController
-  before_action :set_intake, only: [:show, :update, :destroy]
-  before_action :authorize_admin,only: [:create,:destroy,:index,:show,:update]
+  before_action :set_intake, only: %i[show update destroy]
+  before_action :authorize_admin, only: %i[create destroy index show update]
 
   # GET /intakes
   def index
@@ -37,24 +39,27 @@ class Api::V1::IntakesController < ApplicationController
   # DELETE /intakes/1
   def destroy
     @intake.destroy
-    response = { message:'Intake category deleted successfully'}
+    response = { message: 'Intake category deleted successfully' }
     render json: response
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_intake
-      @intake = Intake.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def intake_params
-      params.permit(:title)
-    end
-    # authorize admin
-    def authorize_admin
-      return unless !current_user.admin?
-      response = { message: 'Only Admin can have access!'}
-      render json: response
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_intake
+    @intake = Intake.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def intake_params
+    params.permit(:title)
+  end
+
+  # authorize admin
+  def authorize_admin
+    return if current_user.admin?
+
+    response = { message: 'Only Admin can have access!' }
+    render json: response
+  end
 end

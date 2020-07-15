@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'swagger_helper'
 
 RSpec.describe '/api/v1/users_controller', type: :request do
-path '/api/v1/users' do
-
+  path '/api/v1/users' do
     post 'Creates a user' do
       tags 'Users'
       consumes 'application/json'
@@ -13,19 +14,17 @@ path '/api/v1/users' do
           password: { type: :string },
           email: { type: :string },
           role: { type: :integer }
-         
+
         },
-         required: [ 'email','password','username']
+        required: %w[email password username]
       }
 
       response '201', 'user created' do
-        let(:user) { { username: 'chubi adama', email: 'adamachubi@gmail.com', password_digest:'chubi', role: "client" } }
-     
+        let(:user) { { username: 'chubi adama', email: 'adamachubi@gmail.com', password_digest: 'chubi', role: 'client' } }
       end
 
       response '422', 'invalid request' do
-              let(:user) { { username: 'chubi adama', email: '', password_digest:'', role: "client" } }
-    
+        let(:user) { { username: 'chubi adama', email: '', password_digest: '', role: 'client' } }
       end
     end
   end
@@ -38,27 +37,24 @@ path '/api/v1/users' do
 
       response '200', 'user found' do
         schema type: :object,
-          properties: {
-            id: { type: :integer },
-	        username: { type: :string },
-	        password: { type: :string },
-	        email: { type: :string },
-	        role: { type: :integer }
-          },
-          required: [ 'id', 'username']
+               properties: {
+                 id: { type: :integer },
+                 username: { type: :string },
+                 password: { type: :string },
+                 email: { type: :string },
+                 role: { type: :integer }
+               },
+               required: %w[id username]
 
-        let(:id) { User.create(username: 'chubi adama', email: 'adamachubi@gmail.com', password_digest:'chubi', role: "client" ).id }
-     
+        let(:id) { User.create(username: 'chubi adama', email: 'adamachubi@gmail.com', password_digest: 'chubi', role: 'client').id }
       end
 
       response '404', 'user not found' do
         let(:id) { 'invalid' }
-     
       end
 
       response '406', 'unsupported accept header' do
-        let(:'Accept') { 'application/foo' }
-  
+        let(:Accept) { 'application/foo' }
       end
     end
     delete 'Deletes a user' do
@@ -68,27 +64,24 @@ path '/api/v1/users' do
 
       response '200', 'user found' do
         schema type: :object,
-          properties: {
-            id: { type: :integer },
-	        username: { type: :string },
-	        password: { type: :string },
-	        email: { type: :string },
-	        role: { type: :integer }
-          },
-          required: [ 'id', 'username']
+               properties: {
+                 id: { type: :integer },
+                 username: { type: :string },
+                 password: { type: :string },
+                 email: { type: :string },
+                 role: { type: :integer }
+               },
+               required: %w[id username]
 
-        let(:id) { User.create(username: 'chubi adama', email: 'adamachubi@gmail.com', password_digest:'chubi', role: "client" ).id }
-
+        let(:id) { User.create(username: 'chubi adama', email: 'adamachubi@gmail.com', password_digest: 'chubi', role: 'client').id }
       end
 
       response '404', 'user not found' do
         let(:id) { 'invalid' }
-   
       end
 
       response '406', 'unsupported accept header' do
-        let(:'Accept') { 'application/foo' }
-      
+        let(:Accept) { 'application/foo' }
       end
     end
 
@@ -99,27 +92,24 @@ path '/api/v1/users' do
 
       response '200', 'user found' do
         schema type: :object,
-          properties: {
-            id: { type: :integer },
-	        username: { type: :string },
-	        password: { type: :string },
-	        email: { type: :string },
-	        role: { type: :integer }
-          },
-          required: [ 'id', 'username']
+               properties: {
+                 id: { type: :integer },
+                 username: { type: :string },
+                 password: { type: :string },
+                 email: { type: :string },
+                 role: { type: :integer }
+               },
+               required: %w[id username]
 
-        let(:id) { User.create(username: 'chubi adama', email: 'adamachubi@gmail.com', password_digest:'chubi', role: "client" ).id }
-       
+        let(:id) { User.create(username: 'chubi adama', email: 'adamachubi@gmail.com', password_digest: 'chubi', role: 'client').id }
       end
 
       response '404', 'user not found' do
         let(:id) { 'invalid' }
-      
       end
 
       response '406', 'unsupported accept header' do
-        let(:'Accept') { 'application/foo' }
-       
+        let(:Accept) { 'application/foo' }
       end
     end
   end

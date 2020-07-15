@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Api::V1::MeasurementsController < ApplicationController
-  before_action :set_measurement, only: [:show, :update, :destroy]
+  before_action :set_measurement, only: %i[show update destroy]
   before_action :find_intake, only: [:create]
   # GET /measurements
   def index
@@ -36,22 +38,24 @@ class Api::V1::MeasurementsController < ApplicationController
   # DELETE /measurements/1
   def destroy
     @measurement.destroy
-    response = { message:'Measurement deleted successfully'}
+    response = { message: 'Measurement deleted successfully' }
     render json: response
   end
 
   private
+
   def find_intake
     @intake = Intake.find(params[:intake_id])
   end
-    # Use callbacks to share common setup or constraints between actions.
-    def set_measurement
-      @intake = Intake.find(params[:intake_id])
-      @measurement = @intake.measurements.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def measurement_params
-      params.permit(:units)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_measurement
+    @intake = Intake.find(params[:intake_id])
+    @measurement = @intake.measurements.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def measurement_params
+    params.permit(:units)
+  end
 end

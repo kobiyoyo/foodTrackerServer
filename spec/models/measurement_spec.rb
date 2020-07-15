@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Measurement, type: :model do
-  describe 'association test' do 
-	  it{should belong_to(:intake)}
-	  it{should belong_to(:user)}
+  describe 'association test' do
+    it { should belong_to(:intake) }
+    it { should belong_to(:user) }
   end
-  describe  'validation' do 
-    	it{should validate_presence_of (:units)}
-   end
+  describe 'validation' do
+    it { should validate_presence_of :units }
+  end
 end
