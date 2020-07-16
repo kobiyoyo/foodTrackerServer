@@ -313,8 +313,12 @@ Headers - Authorization `token`
 
 ## Contributors
 
-* [Adama Chubiyojo Desmond](https://github.com/kobiyoyo)
-
+ **Adama Chubiyojo Desmond**
+ 
+-  [Github](https://github.com/kobiyoyo)
+-  [Twitter](https://twitter.com/_kobiyoyo)
+-  [Linkedin](https://www.linkedin.com/in/chubiyojo-adama/)
+-  [Email](mailto:adamachubi@gmail.com)
 ## Contributing
 
 1. Fork it (https://github.com/kobiyoyo/foodTrackerServer/fork)
