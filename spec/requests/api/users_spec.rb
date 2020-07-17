@@ -14,23 +14,17 @@ RSpec.describe '/api/v1/users_controller', type: :request do
           role: { type: :integer }
 
         },
-        required: %w[email password username]
+        required: %w[email password username role]
       }
 
       response '201', 'user created' do
-        let(:user) do
-          { username: 'chubi adama',
-            email: 'adamachubi@gmail.com',
-            password_digest: 'chubi', role: 'client' }
-        end
+        let(:user){  User.create(username: 'chubi adama', email: 'dani@gmail.com', password_digest: 'chubiadama', role: 'client')}
+            run_test!
       end
 
       response '422', 'invalid request' do
-        let(:user) do
-          { username: 'chubi adama',
-            email: '',
-            password_digest: '', role: 'client' }
-        end
+        let(:user){ FactoryBot.create(:user) }
+            run_test!
       end
     end
   end
@@ -50,85 +44,22 @@ RSpec.describe '/api/v1/users_controller', type: :request do
                  email: { type: :string },
                  role: { type: :integer }
                },
-               required: %w[id username]
+               required: %w[id username role email]
 
-        let(:id) do
-          User.create(username: 'chubi adama',
-                      email: 'adamachubi@gmail.com',
-                      password_digest: 'chubi', role: 'client').id
-        end
+        let(:id){ FactoryBot.create(:user).id }
+          run_test!
       end
 
       response '404', 'user not found' do
         let(:id) { 'invalid' }
+        run_test!
       end
 
       response '406', 'unsupported accept header' do
         let(:Accept) { 'application/foo' }
+        run_test!
       end
     end
-    delete 'Deletes a user' do
-      tags 'Users'
-      produces 'application/json', 'application/xml'
-      parameter name: :id, in: :path, type: :string
-
-      response '200', 'user found' do
-        schema type: :object,
-               properties: {
-                 id: { type: :integer },
-                 username: { type: :string },
-                 password: { type: :string },
-                 email: { type: :string },
-                 role: { type: :integer }
-               },
-               required: %w[id username]
-
-        let(:id) do
-          User.create(username: 'chubi adama',
-                      email: 'adamachubi@gmail.com',
-                      password_digest: 'chubi', role: 'client').id
-        end
-      end
-
-      response '404', 'user not found' do
-        let(:id) { 'invalid' }
-      end
-
-      response '406', 'unsupported accept header' do
-        let(:Accept) { 'application/foo' }
-      end
-    end
-
-    patch 'Edit a user parameter' do
-      tags 'Users'
-      produces 'application/json', 'application/xml'
-      parameter name: :id, in: :path, type: :string
-
-      response '200', 'user found' do
-        schema type: :object,
-               properties: {
-                 id: { type: :integer },
-                 username: { type: :string },
-                 password: { type: :string },
-                 email: { type: :string },
-                 role: { type: :integer }
-               },
-               required: %w[id username]
-
-        let(:id) do
-          User.create(username: 'chubi adama',
-                      email: 'adamachubi@gmail.com',
-                      password_digest: 'chubi', role: 'client').id
-        end
-      end
-
-      response '404', 'user not found' do
-        let(:id) { 'invalid' }
-      end
-
-      response '406', 'unsupported accept header' do
-        let(:Accept) { 'application/foo' }
-      end
-    end
+ 
   end
 end
