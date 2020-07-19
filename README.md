@@ -117,7 +117,7 @@ $ cd rails c
 ```
 ## API Documentation
 
-`https://foodapidoc.herokuapp.com/docs`
+(Food Api Doc)[https://foodapidoc.herokuapp.com/docs]
 
 
 ## Sample test
