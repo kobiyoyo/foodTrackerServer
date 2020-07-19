@@ -6,7 +6,7 @@
     A Ruby on Rails application
     <br />
     <br />
-    <a href="">View Demo</a>
+    <a href="https://foodapidoc.herokuapp.com/docs">View Demo</a>
     ·
     <a href="https://github.com/kobiyoyo/foodTrackerServer/issues">Report Bug</a>
     ·
@@ -117,7 +117,7 @@ $ cd rails c
 ```
 ## API Documentation
 
-`http://localhost:3000/api-docs/`
+`https://foodapidoc.herokuapp.com/docs`
 
 
 ## Sample test
