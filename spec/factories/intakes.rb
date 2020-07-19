@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :intake do
-    title { 'MyString' }
+    title { 'Carbohydrate' }
   end
 end

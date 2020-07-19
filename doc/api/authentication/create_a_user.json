@@ -1,0 +1,71 @@
+{
+  "resource": "Authentication",
+  "resource_explanation": null,
+  "http_method": "POST",
+  "route": "auth/signup",
+  "description": "Create a user",
+  "explanation": "Create a user",
+  "parameters": [
+    {
+      "name": "username",
+      "description": "User username"
+    },
+    {
+      "name": "email",
+      "description": "User email"
+    },
+    {
+      "name": "password",
+      "description": "User password"
+    },
+    {
+      "name": "password_confirmation",
+      "description": "User password confirmation"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "auth/signup",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 422,
+      "response_status_text": "Unprocessable Entity",
+      "response_body": "{\n  \"password\": [\n    \"can't be blank\"\n  ],\n  \"username\": [\n    \"can't be blank\"\n  ],\n  \"email\": [\n    \"can't be blank\",\n    \"is invalid\"\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/auth/signup\" -d '' -X POST \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    },
+    {
+      "request_method": "POST",
+      "request_path": "auth/signup",
+      "request_body": "{\"username\":\"simon\",\"email\":\"simon@gmail.com\",\"password\":\"123234566\",\"password_confirmation\":\"123234566\"}",
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"id\": 3414,\n  \"email\": \"simon@gmail.com\",\n  \"username\": \"simon\",\n  \"role\": \"client\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/auth/signup\" -d '{\"username\":\"simon\",\"email\":\"simon@gmail.com\",\"password\":\"123234566\",\"password_confirmation\":\"123234566\"}' -X POST \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}
