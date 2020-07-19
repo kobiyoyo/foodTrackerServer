@@ -2,12 +2,13 @@ require 'rails_helper'
 require_relative '../support/authentication'
 
 RSpec.describe '/intakes', type: :request do
-  let(:users) { FactoryBot.create(:user, role: 'admin',password:'123234566',password_confirmation:'123234566') }
-  let(:intake) { FactoryBot.create(:intake) }
   auth = Auth.new
+  let(:users) { FactoryBot.create(:user, role: 'admin', password: '123234566', password_confirmation: '123234566') }
   let(:valid_headers) do
     auth.authenticated_header(users)
   end
+  let(:intake) { FactoryBot.create(:intake) }
+
 
   describe 'GET /index' do
     it 'renders a successful response' do

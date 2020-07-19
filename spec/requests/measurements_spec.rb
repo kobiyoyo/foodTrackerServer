@@ -2,13 +2,14 @@ require 'rails_helper'
 require_relative '../support/authentication'
 
 RSpec.describe '/measurements', type: :request do
-  let(:users) { FactoryBot.create(:user,password:'123234566',password_confirmation:'123234566') }
-  let(:intake) { FactoryBot.create(:intake) }
-  let(:measurement) { FactoryBot.create(:measurement, user: users, intake: intake, units: 56) }
   auth = Auth.new
+  let(:users) { FactoryBot.create(:user, password: '123234566', password_confirmation: '123234566') }
   let(:valid_headers) do
     auth.authenticated_header(users)
   end
+  let(:intake) { FactoryBot.create(:intake) }
+  let(:measurement) { FactoryBot.create(:measurement, user: users, intake: intake, units: 56) }
+
 
   describe 'GET /index' do
     it 'renders a successful response' do

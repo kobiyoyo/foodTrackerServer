@@ -52,5 +52,4 @@ class Api::V1::IntakesController < ApplicationController
   def intake_params
     params.permit(:title)
   end
-
 end

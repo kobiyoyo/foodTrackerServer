@@ -2,12 +2,12 @@ require 'rails_helper'
 require_relative '../support/authentication'
 
 RSpec.describe '/users', type: :request do
-  let(:users) { FactoryBot.create(:user,username:'heavy',email:'adfadgd@gmail.com',role: 'admin',password:'123234566',password_confirmation:'123234566') }
   auth = Auth.new
-
+  let(:users) { FactoryBot.create(:user, username: 'heavy', email: 'adfadgd@gmail.com', role: 'admin', password: '123234566', password_confirmation: '123234566') }
   let(:valid_headers) do
     auth.authenticated_header(users)
   end
+
 
   describe 'GET /index' do
     it 'renders a successful response' do
