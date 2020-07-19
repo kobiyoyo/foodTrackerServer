@@ -2,9 +2,9 @@ require 'acceptance_helper'
 require_relative '../support/authentication'
 
 resource "Authentication" do
-  let!(:users) { FactoryBot.create(:user, email:'rilux@gmail.com',password:'123234566',role: 'admin')  }
-  let!(:faith) { User.create(username:'fina',email:'fina@gmail.com',password:'123234566',role:'admin') }
-  let!(:fina) { User.create(username:'faith',email:'faith@gmail.com',password:'123234566',role:'client') }
+  let!(:users) { FactoryBot.create(:user, email:'rilux@gmail.com',password:'123234566',password_confirmation:'123234566',role: 'admin')  }
+  let!(:faith) { User.create(username:'fina',email:'fina@gmail.com',password:'123234566',password_confirmation:'123234566',role:'admin') }
+  let!(:fina) { User.create(username:'faith',email:'faith@gmail.com',password:'123234566',password_confirmation:'123234566',role:'client') }
 
   before do
     header 'Content-Type', 'application/json'
@@ -49,5 +49,5 @@ resource "Authentication" do
       end
 
 
-end
+  end
 end

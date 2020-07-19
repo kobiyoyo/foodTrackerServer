@@ -53,11 +53,4 @@ class Api::V1::IntakesController < ApplicationController
     params.permit(:title)
   end
 
-  # authorize admin
-  def authorize_admin
-    return if current_user.admin?
-
-    response = { message: 'Only Admin can have access!' }
-    render json: response
-  end
 end

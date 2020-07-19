@@ -3,7 +3,7 @@ require_relative '../support/authentication'
 
 resource "Measurements" do
   let!(:intakes) { FactoryBot.create(:intake)  }
-  let!(:users) { FactoryBot.create(:user, role: 'admin')  }
+  let!(:users) { FactoryBot.create(:user, role: 'admin',password:'123234566',password_confirmation:'123234566')  }
   auth = Auth.new
   let!(:measurement) { FactoryBot.create(:measurement, user: users, intake: intakes, units: 56) }
   let!(:measurementone) { FactoryBot.create(:measurement, user: users, intake: intakes, units: 63) }

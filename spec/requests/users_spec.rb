@@ -2,7 +2,7 @@ require 'rails_helper'
 require_relative '../support/authentication'
 
 RSpec.describe '/users', type: :request do
-  let(:users) { FactoryBot.create(:user) }
+  let(:users) { FactoryBot.create(:user,username:'heavy',email:'adfadgd@gmail.com',role: 'admin',password:'123234566',password_confirmation:'123234566') }
   auth = Auth.new
 
   let(:valid_headers) do

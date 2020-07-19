@@ -2,10 +2,10 @@ require 'acceptance_helper'
 require_relative '../support/authentication'
 
 resource "Users" do
-  let!(:users) { FactoryBot.create(:user, role: 'admin')  }
+  let!(:users) { FactoryBot.create(:user, role: 'admin',password:'123234566',password_confirmation:'123234566')  }
   auth = Auth.new
-  let!(:faith) { User.create(username:'fina',email:'fina@gmail.com',password:'123234566',role:'admin') }
-  let!(:fina) { User.create(username:'faith',email:'faith@gmail.com',password:'123234566',role:'client') }
+  let!(:faith) { User.create(username:'fina',email:'fina@gmail.com',password:'123234566',password_confirmation:'123234566',role:'admin') }
+  let!(:fina) { User.create(username:'faith',email:'faith@gmail.com',password:'123234566',password_confirmation:'123234566',role:'client') }
   let(:valid_headers) do
     auth.token(users)
   end

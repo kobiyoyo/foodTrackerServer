@@ -2,7 +2,7 @@ require 'rails_helper'
 require_relative '../support/authentication'
 
 RSpec.describe '/measurements', type: :request do
-  let(:users) { FactoryBot.create(:user) }
+  let(:users) { FactoryBot.create(:user,password:'123234566',password_confirmation:'123234566') }
   let(:intake) { FactoryBot.create(:intake) }
   let(:measurement) { FactoryBot.create(:measurement, user: users, intake: intake, units: 56) }
   auth = Auth.new

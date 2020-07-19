@@ -3,7 +3,7 @@ require_relative '../support/authentication'
 
 resource "Intakes" do
   let!(:intakes) { FactoryBot.create(:intake)  }
-  let!(:users) { FactoryBot.create(:user, role: 'admin')  }
+  let!(:users) { FactoryBot.create(:user, role: 'admin',password:'123234566',password_confirmation:'123234566')  }
   auth = Auth.new
   let!(:oil) {FactoryBot.create(:intake,title:'Oil and fatty acid') }
   let!(:yam) { FactoryBot.create(:intake,title:'sea foods') }
