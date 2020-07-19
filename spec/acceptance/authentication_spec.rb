@@ -16,8 +16,8 @@ resource "Authentication" do
   	parameter :email,'User email'
   	parameter :password,'User password'
   	parameter :password_confirmation, 'User password confirmation'
-    example_request "Create a user" do
-    explanation 'Create a user'
+    example_request "Sign up a user" do
+    explanation 'Sign up a user'
     do_request(username:'simon',email:'simon@gmail.com',password:'123234566',password_confirmation:'123234566')
       expect(status).to eq 201
     

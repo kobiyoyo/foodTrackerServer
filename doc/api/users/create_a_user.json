@@ -64,7 +64,7 @@
       "request_content_type": "application/json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 3437,\n  \"email\": \"simon@gmail.com\",\n  \"username\": \"simon\",\n  \"role\": \"client\"\n}",
+      "response_body": "{\n  \"id\": 3503,\n  \"email\": \"simon@gmail.com\",\n  \"username\": \"simon\",\n  \"role\": \"client\"\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },

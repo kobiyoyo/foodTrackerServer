@@ -5,8 +5,8 @@
       "explanation": null,
       "examples": [
         {
-          "description": "Create a user",
-          "link": "authentication/create_a_user.json",
+          "description": "Sign up a user",
+          "link": "authentication/sign_up_a_user.json",
           "groups": "all",
           "route": "auth/signup",
           "method": "post"

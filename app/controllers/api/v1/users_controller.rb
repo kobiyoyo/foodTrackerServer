@@ -54,10 +54,5 @@ class Api::V1::UsersController < ApplicationController
     params.permit(:username, :email, :password, :password_confirmation, :role)
   end
 
-  def authorize_admin
-    return if current_user.admin?
 
-    response = { message: 'Only Admin can have access!' }
-    render json: response
-  end
 end

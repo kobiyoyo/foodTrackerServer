@@ -14,7 +14,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "api/v1/users/3431",
+      "request_path": "api/v1/users/3497",
       "request_body": null,
       "request_headers": {
         "Content-Type": "application/json",
@@ -25,12 +25,12 @@
       "request_content_type": "application/json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"id\": 3431,\n  \"email\": \"ada@gmail.com\",\n  \"username\": \"Dan\",\n  \"role\": \"admin\"\n}",
+      "response_body": "{\n  \"id\": 3497,\n  \"email\": \"ada@gmail.com\",\n  \"username\": \"Dan\",\n  \"role\": \"admin\"\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl -g \"http://localhost:3000/api/v1/users/3431\" -X GET \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl -g \"http://localhost:3000/api/v1/users/3497\" -X GET \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }
