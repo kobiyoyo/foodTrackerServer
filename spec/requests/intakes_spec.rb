@@ -9,7 +9,6 @@ RSpec.describe '/intakes', type: :request do
   end
   let(:intake) { FactoryBot.create(:intake) }
 
-
   describe 'GET /index' do
     it 'renders a successful response' do
       get '/api/v1/intakes', headers: valid_headers, as: :json

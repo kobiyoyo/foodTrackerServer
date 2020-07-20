@@ -3,11 +3,13 @@ require_relative '../support/authentication'
 
 RSpec.describe '/users', type: :request do
   auth = Auth.new
-  let(:users) { FactoryBot.create(:user, username: 'heavy', email: 'adfadgd@gmail.com', role: 'admin', password: '123234566', password_confirmation: '123234566') }
+  let(:users) do
+    FactoryBot.create(:user, username: 'heavy', email: 'adfadgd@gmail.com', role: 'admin',
+                             password: '123234566', password_confirmation: '123234566')
+  end
   let(:valid_headers) do
     auth.authenticated_header(users)
   end
-
 
   describe 'GET /index' do
     it 'renders a successful response' do
@@ -52,6 +54,11 @@ RSpec.describe '/users', type: :request do
         post '/api/v1/users/',
              params: { user: '' }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
+      end
+
+      it 'renders a content type with errors for the new user' do
+        post '/api/v1/users/',
+             params: { user: '' }, headers: valid_headers, as: :json
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
@@ -79,7 +86,7 @@ RSpec.describe '/users', type: :request do
     end
 
     context 'with invalid parameters' do
-      it 'renders a JSON response with errors for the user' do
+      it 'renders a JSON response with errors' do
         patch "/api/v1/users/#{users.id}",
               params: { user: '' }, headers: valid_headers, as: :json
         expect(response.content_type).to eq('application/json; charset=utf-8')

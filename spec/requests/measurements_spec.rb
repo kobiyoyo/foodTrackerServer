@@ -10,7 +10,6 @@ RSpec.describe '/measurements', type: :request do
   let(:intake) { FactoryBot.create(:intake) }
   let(:measurement) { FactoryBot.create(:measurement, user: users, intake: intake, units: 56) }
 
-
   describe 'GET /index' do
     it 'renders a successful response' do
       get "/api/v1/intakes/#{intake.id}/measurements", headers: valid_headers, as: :json
