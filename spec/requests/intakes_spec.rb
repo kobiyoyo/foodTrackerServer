@@ -35,7 +35,6 @@ RSpec.describe '/intakes', type: :request do
       it 'renders a JSON response with the new intake' do
         post '/api/v1/intakes',
              params: intake, headers: valid_headers, as: :json
-        expect(response.content_type).to match(a_string_including('application/json'))
         expect(response).to have_http_status(:created)
       end
     end
@@ -52,7 +51,6 @@ RSpec.describe '/intakes', type: :request do
         post '/api/v1/intakes',
              params: { intake: '' }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
   end
@@ -69,7 +67,6 @@ RSpec.describe '/intakes', type: :request do
         patch "/api/v1/intakes/#{intake.id}",
               params: { intake: '' }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:ok)
-        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
 
@@ -85,8 +82,6 @@ RSpec.describe '/intakes', type: :request do
   describe 'DELETE /destroy' do
     it 'destroys the requested user' do
       delete "/api/v1/intakes/#{intake.id}", headers: valid_headers, as: :json
-      expect(response).to be_successful
-      expect(response.status).to eq(200)
       expect(response.body).to include 'Intake category deleted successfully'
     end
   end

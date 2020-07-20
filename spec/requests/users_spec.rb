@@ -66,22 +66,17 @@ RSpec.describe '/users', type: :request do
 
   describe 'PATCH /update' do
     context 'with valid parameters' do
-      let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
-      end
-
-      it 'updates the requested user' do
+      it 'updates user data' do
         patch "/api/v1/users/#{users.id}",
               params: { user: users }, headers: valid_headers, as: :json
 
-        expect(response.status).to eq(200)
+        expect(response).to be_successful
       end
 
       it 'renders a JSON response with the user' do
         patch "/api/v1/users/#{users.id}",
               params: { user: users }, headers: valid_headers, as: :json
         expect(response.status).to eq(200)
-        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
 
@@ -89,14 +84,12 @@ RSpec.describe '/users', type: :request do
       it 'renders a JSON response with errors' do
         patch "/api/v1/users/#{users.id}",
               params: { user: '' }, headers: valid_headers, as: :json
-        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
 
       it 'renders a JSON response with errors for the user' do
         patch "/api/v1/users/#{users.id}",
               params: { user: '' }, as: :json
         expect(response.status).to eq(401)
-        expect(response.content_type).to eq('text/html')
       end
     end
   end
@@ -105,7 +98,6 @@ RSpec.describe '/users', type: :request do
     it 'destroys the requested user' do
       delete "/api/v1/users/#{users.id}", headers: valid_headers, as: :json
       expect(response).to be_successful
-      expect(response.status).to eq(200)
     end
   end
 end

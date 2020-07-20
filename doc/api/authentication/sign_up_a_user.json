@@ -40,7 +40,7 @@
       "request_content_type": "application/json",
       "response_status": 422,
       "response_status_text": "Unprocessable Entity",
-      "response_body": "{\n  \"password\": [\n    \"can't be blank\"\n  ],\n  \"username\": [\n    \"can't be blank\"\n  ],\n  \"email\": [\n    \"can't be blank\",\n    \"is invalid\"\n  ]\n}",
+      "response_body": "{\n  \"password\": [\n    \"can't be blank\",\n    \"is too short (minimum is 4 characters)\"\n  ],\n  \"username\": [\n    \"can't be blank\"\n  ],\n  \"password_confirmation\": [\n    \"can't be blank\"\n  ],\n  \"email\": [\n    \"can't be blank\",\n    \"is invalid\"\n  ]\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
@@ -60,7 +60,7 @@
       "request_content_type": "application/json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 3480,\n  \"email\": \"simon@gmail.com\",\n  \"username\": \"simon\",\n  \"role\": \"client\"\n}",
+      "response_body": "{\n  \"id\": 4862,\n  \"email\": \"simon@gmail.com\",\n  \"username\": \"simon\",\n  \"role\": \"client\"\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },

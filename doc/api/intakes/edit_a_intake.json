@@ -17,7 +17,7 @@
   "requests": [
     {
       "request_method": "PATCH",
-      "request_path": "api/v1/intakes/1610",
+      "request_path": "api/v1/intakes/2548",
       "request_body": null,
       "request_headers": {
         "Content-Type": "application/json",
@@ -28,16 +28,16 @@
       "request_content_type": "application/json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"id\": 1610,\n  \"title\": \"Carbohydrate\"\n}",
+      "response_body": "{\n  \"id\": 2548,\n  \"title\": \"Carbohydrate\"\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/intakes/1610\" -d '' -X PATCH \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/intakes/2548\" -d '' -X PATCH \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     },
     {
       "request_method": "PATCH",
-      "request_path": "api/v1/intakes/1610",
+      "request_path": "api/v1/intakes/2548",
       "request_body": "{\"title\":\"Vitamins\"}",
       "request_headers": {
         "Content-Type": "application/json",
@@ -48,12 +48,12 @@
       "request_content_type": "application/json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"id\": 1610,\n  \"title\": \"Vitamins\"\n}",
+      "response_body": "{\n  \"id\": 2548,\n  \"title\": \"Vitamins\"\n}",
       "response_headers": {
         "Content-Type": "application/json; charset=utf-8"
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://localhost:3000/api/v1/intakes/1610\" -d '{\"title\":\"Vitamins\"}' -X PATCH \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://localhost:3000/api/v1/intakes/2548\" -d '{\"title\":\"Vitamins\"}' -X PATCH \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
     }
   ]
 }

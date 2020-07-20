@@ -36,7 +36,6 @@ RSpec.describe '/measurements', type: :request do
       it 'renders a JSON response with the new measurement' do
         post "/api/v1/intakes/#{intake.id}/measurements",
              params: measurement, headers: valid_headers, as: :json
-        expect(response.content_type).to match(a_string_including('application/json'))
         expect(response).to have_http_status(:created)
       end
     end
@@ -53,7 +52,6 @@ RSpec.describe '/measurements', type: :request do
         post "/api/v1/intakes/#{intake.id}/measurements",
              params: { measurement: ' ' }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
   end
@@ -70,7 +68,6 @@ RSpec.describe '/measurements', type: :request do
         patch "/api/v1/intakes/#{intake.id}/measurements/#{measurement.id}",
               params: { measurement: measurement }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:ok)
-        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
 
@@ -87,8 +84,6 @@ RSpec.describe '/measurements', type: :request do
   describe 'DELETE /destroy' do
     it 'destroys the requested user' do
       delete "/api/v1/intakes/#{intake.id}/measurements/#{measurement.id}", headers: valid_headers, as: :json
-      expect(response).to be_successful
-      expect(response.status).to eq(200)
       expect(response.body).to include 'Measurement deleted successfully'
     end
   end

@@ -6,9 +6,8 @@ resource 'Users' do
   auth = Auth.new
   let!(:faith) { User.create(username: 'fina', email: 'fina@gmail.com', password: '123234566', password_confirmation: '123234566', role: 'admin') }
   let!(:fina) { User.create(username: 'faith', email: 'faith@gmail.com', password: '123234566', password_confirmation: '123234566', role: 'client') }
-  let(:valid_headers) do
-    auth.token(users)
-  end
+  let(:valid_headers) { auth.token(users) }
+  let(:user_id) { users.id }
   before do
     header 'Authorization', valid_headers
     header 'Content-Type', 'application/json'
@@ -16,14 +15,11 @@ resource 'Users' do
 
   get 'api/v1/users' do
     example_request 'Get all users' do
-      explanation 'List all the users'
       expect(status).to eq 200
     end
   end
   get 'api/v1/users/:user_id' do
-    let(:user_id) { users.id }
     example_request 'Get a user' do
-      explanation 'Show a user'
       expect(status).to eq 200
     end
   end
@@ -35,13 +31,11 @@ resource 'Users' do
     parameter :password, 'User password'
     parameter :password_confirmation, 'User password confirmation'
     example_request 'Create a user' do
-      explanation 'Create a user'
       do_request(username: 'simon', email: 'simon@gmail.com', password: '123234566', password_confirmation: '123234566', role: 'client')
       expect(status).to eq 201
     end
   end
   patch 'api/v1/users/:user_id' do
-    let(:user_id) { users.id }
     route_summary 'This is used to edit a user'
     parameter :username, 'User username'
     parameter :email, 'User email'
@@ -49,15 +43,12 @@ resource 'Users' do
     parameter :password, 'User password'
     parameter :password_confirmation, 'User password confirmation'
     example_request 'Edit a user' do
-      explanation 'Edit a user'
       do_request(username: 'eleojo', email: 'simon@gmail.com', password: '123234566', role: 'client')
       expect(status).to eq 200
     end
   end
   delete 'api/v1/users/:user_id' do
-    let(:user_id) { users.id }
     example_request 'Delete a user' do
-      explanation 'Delete a user'
       expect(status).to eq 200
     end
   end
