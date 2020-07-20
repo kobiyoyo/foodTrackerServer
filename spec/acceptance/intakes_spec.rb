@@ -7,9 +7,7 @@ resource 'Intakes' do
   auth = Auth.new
   let!(:oil) { FactoryBot.create(:intake, title: 'Oil and fatty acid') }
   let!(:yam) { FactoryBot.create(:intake, title: 'sea foods') }
-  let(:valid_headers) do
-    auth.token(users)
-  end
+  let(:valid_headers) { auth.token(users) }
   before do
     header 'Authorization', valid_headers
     header 'Content-Type', 'application/json'

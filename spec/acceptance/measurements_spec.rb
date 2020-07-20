@@ -8,9 +8,7 @@ resource 'Measurements' do
   let!(:measurement) { FactoryBot.create(:measurement, user: users, intake: intakes, units: 56) }
   let!(:measurementone) { FactoryBot.create(:measurement, user: users, intake: intakes, units: 63) }
   let!(:measurementtwo) { FactoryBot.create(:measurement, user: users, intake: intakes, units: 98) }
-  let(:valid_headers) do
-    auth.token(users)
-  end
+  let(:valid_headers) { auth.token(users) }
   before do
     header 'Authorization', valid_headers
     header 'Content-Type', 'application/json'

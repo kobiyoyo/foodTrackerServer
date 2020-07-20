@@ -29,14 +29,9 @@ resource 'Authentication' do
       parameter :password, 'User password'
     end
 
-    context '200' do
+    context 'when it successful 200' do
       example 'Sign in user' do
-        request = {
-          auth: {
-            email: users.email,
-            password: users.password
-          }
-        }
+        request = { auth: { email: users.email, password: users.password } }
 
         do_request(request)
 
