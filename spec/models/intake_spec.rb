@@ -6,6 +6,7 @@ RSpec.describe Intake, type: :model do
   end
 
   describe 'validation' do
+    it { should have_many(:measurements).dependent(:destroy) }
     it { is_expected.to validate_presence_of :title }
     it { is_expected.to validate_length_of(:title).is_at_least(4) }
   end
