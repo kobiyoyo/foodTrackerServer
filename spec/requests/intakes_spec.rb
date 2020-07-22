@@ -76,9 +76,16 @@ RSpec.describe '/intakes', type: :request do
   end
 
   describe 'DELETE /destroy' do
-    it 'destroys the requested user' do
+    before do
       delete "/api/v1/intakes/#{intake.id}", headers: valid_headers, as: :json
+    end
+
+    it 'destroys the requested user' do
       expect(response.status).to eq(200)
+    end
+
+    it 'render delete message' do
+      expect(response.body).to include 'Intake category deleted successfully'
     end
   end
 end

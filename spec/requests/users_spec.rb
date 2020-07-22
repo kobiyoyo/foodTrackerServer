@@ -86,9 +86,16 @@ RSpec.describe '/users', type: :request do
   end
 
   describe 'DELETE /destroy' do
-    it 'destroys the requested user' do
+    before do
       delete "/api/v1/users/#{users.id}", headers: valid_headers, as: :json
+    end
+
+    it 'destroys the requested user' do
       expect(response.status).to eq(200)
+    end
+
+    it 'render delete message' do
+      expect(response.body).to include 'User  deleted successfully'
     end
   end
 end
