@@ -8,6 +8,8 @@ RSpec.describe '/intakes', type: :request do
     auth.authenticated_header(users)
   end
   let(:intake) { FactoryBot.create(:intake) }
+  let(:valid_attributes) { {  title:'hello' } }
+  let(:invalid_attributes) { { title:'' } }
 
   describe 'GET /index' do
     it 'renders a successful response' do
@@ -28,13 +30,13 @@ RSpec.describe '/intakes', type: :request do
       it 'creates a new Intake' do
         expect do
           post '/api/v1/intakes',
-               params: { intake: intake }, headers: valid_headers, as: :json
+               params: valid_attributes, headers: valid_headers, as: :json
         end.to change(Intake, :count).by(1)
       end
 
       it 'renders a JSON response with the new intake' do
         post '/api/v1/intakes',
-             params: intake, headers: valid_headers, as: :json
+             params: valid_attributes, headers: valid_headers, as: :json
         expect(response).to have_http_status(:created)
       end
     end
@@ -43,13 +45,13 @@ RSpec.describe '/intakes', type: :request do
       it 'does not create a new Intake' do
         expect do
           post '/api/v1/intakes',
-               params: { intake: '' }, headers: valid_headers, as: :json
+               params: invalid_attributes, headers: valid_headers, as: :json
         end.to change(Intake, :count).by(0)
       end
 
       it 'renders a JSON response with errors for the new intake' do
         post '/api/v1/intakes',
-             params: { intake: '' }, headers: valid_headers, as: :json
+             params: invalid_attributes, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -59,22 +61,16 @@ RSpec.describe '/intakes', type: :request do
     context 'with valid parameters' do
       it 'updates the requested intake' do
         patch "/api/v1/intakes/#{intake.id}",
-              params: { intake: intake }, headers: valid_headers, as: :json
+              params: valid_attributes, headers: valid_headers, as: :json
         expect(response.status).to eq(200)
-      end
-
-      it 'renders a JSON response with the intake' do
-        patch "/api/v1/intakes/#{intake.id}",
-              params: { intake: '' }, headers: valid_headers, as: :json
-        expect(response).to have_http_status(:ok)
       end
     end
 
     context 'with invalid parameters' do
       it 'renders a JSON response with errors for the intake' do
         patch "/api/v1/intakes/#{intake.id}",
-              params: { intake: '' }, headers: valid_headers, as: :json
-        expect(response.content_type).to eq('application/json; charset=utf-8')
+              params: invalid_attributes , headers: valid_headers, as: :json
+        expect(response).to have_http_status(:unprocessable_entity) 
       end
     end
   end
@@ -82,6 +78,7 @@ RSpec.describe '/intakes', type: :request do
   describe 'DELETE /destroy' do
     it 'destroys the requested user' do
       delete "/api/v1/intakes/#{intake.id}", headers: valid_headers, as: :json
+      expect(response.status).to eq(200)
       expect(response.body).to include 'Intake category deleted successfully'
     end
   end
