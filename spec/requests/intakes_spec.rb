@@ -8,8 +8,8 @@ RSpec.describe '/intakes', type: :request do
     auth.authenticated_header(users)
   end
   let(:intake) { FactoryBot.create(:intake) }
-  let(:valid_attributes) { {  title:'hello' } }
-  let(:invalid_attributes) { { title:'' } }
+  let(:valid_attributes) { { title: 'hello' } }
+  let(:invalid_attributes) { { title: '' } }
 
   describe 'GET /index' do
     it 'renders a successful response' do
@@ -69,8 +69,8 @@ RSpec.describe '/intakes', type: :request do
     context 'with invalid parameters' do
       it 'renders a JSON response with errors for the intake' do
         patch "/api/v1/intakes/#{intake.id}",
-              params: invalid_attributes , headers: valid_headers, as: :json
-        expect(response).to have_http_status(:unprocessable_entity) 
+              params: invalid_attributes, headers: valid_headers, as: :json
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
@@ -79,7 +79,6 @@ RSpec.describe '/intakes', type: :request do
     it 'destroys the requested user' do
       delete "/api/v1/intakes/#{intake.id}", headers: valid_headers, as: :json
       expect(response.status).to eq(200)
-      expect(response.body).to include 'Intake category deleted successfully'
     end
   end
 end

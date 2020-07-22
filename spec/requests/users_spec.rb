@@ -10,11 +10,14 @@ RSpec.describe '/users', type: :request do
   let(:valid_headers) do
     auth.authenticated_header(users)
   end
-  let(:valid_attributes) { {  username: 'heavy', email: 'adfadgd@gmail.com', role: 'admin',
-                             password: '123234566', password_confirmation: '123234566' } }
-  let(:invalid_attributes) { { username: '', email: '', role: 'admin',password: '123234566',
-                             password_confirmation: '123234566' } }
-
+  let(:valid_attributes) do
+    { username: 'heavy', email: 'adfadgd@gmail.com', role: 'admin',
+      password: '123234566', password_confirmation: '123234566' }
+  end
+  let(:invalid_attributes) do
+    { username: '', email: '', role: 'admin', password: '123234566',
+      password_confirmation: '123234566' }
+  end
 
   describe 'GET /index' do
     it 'renders a successful response' do
@@ -35,13 +38,13 @@ RSpec.describe '/users', type: :request do
       it 'creates a new User' do
         expect do
           post '/api/v1/users/',
-               params:  valid_attributes , as: :json
+               params: valid_attributes, as: :json
         end.to change(User, :count).by(1)
       end
 
       it 'renders a JSON response with the new user' do
         post '/api/v1/users/',
-             params:  valid_attributes , as: :json
+             params: valid_attributes, as: :json
 
         expect(response.status).to eq(201)
       end
@@ -51,14 +54,13 @@ RSpec.describe '/users', type: :request do
       it 'does not create a new User' do
         expect do
           post '/api/v1/users/',
-               params:  invalid_attributes , as: :json
+               params: invalid_attributes, as: :json
         end.to change(User, :count).by(0)
-        expect(response).to have_http_status(:unprocessable_entity) 
       end
 
       it 'renders a JSON response with errors for the new user' do
         post '/api/v1/users/',
-             params:  invalid_attributes , headers: valid_headers, as: :json
+             params: invalid_attributes, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -77,17 +79,16 @@ RSpec.describe '/users', type: :request do
     context 'with invalid parameters' do
       it 'renders a JSON response with errors for the user' do
         patch "/api/v1/users/#{users.id}",
-              params:  invalid_attributes ,headers: valid_headers, as: :json
-        expect(response).to have_http_status(:unprocessable_entity) 
+              params: invalid_attributes, headers: valid_headers, as: :json
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
 
   describe 'DELETE /destroy' do
     it 'destroys the requested user' do
-     delete "/api/v1/users/#{users.id}", headers: valid_headers, as: :json
+      delete "/api/v1/users/#{users.id}", headers: valid_headers, as: :json
       expect(response.status).to eq(200)
-      expect(response.body).to include 'User  deleted successfully'
     end
   end
 end
