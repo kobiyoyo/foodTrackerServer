@@ -1,0 +1,147 @@
+{
+  "resources": [
+    {
+      "name": "Authentication",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Sign up a user",
+          "link": "authentication/sign_up_a_user.json",
+          "groups": "all",
+          "route": "auth/signup",
+          "method": "post"
+        },
+        {
+          "description": "Sign in user",
+          "link": "authentication/sign_in_user.json",
+          "groups": "all",
+          "route": "auth/signin",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Intakes",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Get all intakes",
+          "link": "intakes/get_all_intakes.json",
+          "groups": "all",
+          "route": "api/v1/intakes",
+          "method": "get"
+        },
+        {
+          "description": "Get a intake",
+          "link": "intakes/get_a_intake.json",
+          "groups": "all",
+          "route": "api/v1/intakes/:intake_id",
+          "method": "get"
+        },
+        {
+          "description": "Create a intake",
+          "link": "intakes/create_a_intake.json",
+          "groups": "all",
+          "route": "api/v1/intakes",
+          "method": "post"
+        },
+        {
+          "description": "Edit a intake",
+          "link": "intakes/edit_a_intake.json",
+          "groups": "all",
+          "route": "api/v1/intakes/:intake_id",
+          "method": "patch"
+        },
+        {
+          "description": "Delete a intake",
+          "link": "intakes/delete_a_intake.json",
+          "groups": "all",
+          "route": "api/v1/intakes/:intake_id",
+          "method": "delete"
+        }
+      ]
+    },
+    {
+      "name": "Measurements",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Get all measurements",
+          "link": "measurements/get_all_measurements.json",
+          "groups": "all",
+          "route": "api/v1/intakes/:intake_id/measurements",
+          "method": "get"
+        },
+        {
+          "description": "Get a measurement",
+          "link": "measurements/get_a_measurement.json",
+          "groups": "all",
+          "route": "api/v1/intakes/:intake_id/measurements/:measurement_id",
+          "method": "get"
+        },
+        {
+          "description": "Create a measurement",
+          "link": "measurements/create_a_measurement.json",
+          "groups": "all",
+          "route": "api/v1/intakes/:intake_id/measurements",
+          "method": "post"
+        },
+        {
+          "description": "Edit a measurement",
+          "link": "measurements/edit_a_measurement.json",
+          "groups": "all",
+          "route": "api/v1/intakes/:intake_id/measurements/:measurement_id",
+          "method": "patch"
+        },
+        {
+          "description": "Delete a measurement",
+          "link": "measurements/delete_a_measurement.json",
+          "groups": "all",
+          "route": "api/v1/intakes/:intake_id/measurements/:measurement_id",
+          "method": "delete"
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Get all users",
+          "link": "users/get_all_users.json",
+          "groups": "all",
+          "route": "api/v1/users",
+          "method": "get"
+        },
+        {
+          "description": "Get a user",
+          "link": "users/get_a_user.json",
+          "groups": "all",
+          "route": "api/v1/users/:user_id",
+          "method": "get"
+        },
+        {
+          "description": "Create a user",
+          "link": "users/create_a_user.json",
+          "groups": "all",
+          "route": "api/v1/users",
+          "method": "post"
+        },
+        {
+          "description": "Edit a user",
+          "link": "users/edit_a_user.json",
+          "groups": "all",
+          "route": "api/v1/users/:user_id",
+          "method": "patch"
+        },
+        {
+          "description": "Delete a user",
+          "link": "users/delete_a_user.json",
+          "groups": "all",
+          "route": "api/v1/users/:user_id",
+          "method": "delete"
+        }
+      ]
+    }
+  ]
+}
