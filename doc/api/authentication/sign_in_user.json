@@ -1,0 +1,47 @@
+{
+  "resource": "Authentication",
+  "resource_explanation": null,
+  "http_method": "POST",
+  "route": "auth/signin",
+  "description": "Sign in user",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "auth",
+      "with_example": true,
+      "name": "email",
+      "description": "User email"
+    },
+    {
+      "scope": "auth",
+      "with_example": true,
+      "name": "password",
+      "description": "User password"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "auth/signin",
+      "request_body": "{\"auth\":{\"email\":\"rilux@gmail.com\",\"password\":\"123234566\"}}",
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"jwt\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTUyOTM2NTYsInN1YiI6NDg2MywidXNlcm5hbWUiOiJEYW4ifQ.Dv79PC-gE1J8z3amYi8kSy-8iK_G9C2aRWTTWNOmGnU\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/auth/signin\" -d '{\"auth\":{\"email\":\"rilux@gmail.com\",\"password\":\"123234566\"}}' -X POST \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}
